@@ -1,0 +1,10 @@
+---
+- name: Create postgresql role for user
+  sudo: yes
+  sudo_user: postgres
+  postgresql_user: name="{{psql_owner}}"
+
+- name: Create postgresql database
+  sudo: yes
+  sudo_user: postgres
+  postgresql_db: name="{{psql_db_name}}" owner="{{psql_owner}}"
